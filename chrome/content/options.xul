@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<prefwindow id="EmuleOneClick-preferences" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="Login information" buttons="accept,cancel">
+  <prefpane id="pane1" label="Login information">
+    <preferences>
+      <preference id="url" name="extensions.EmuleOneClick.url" type="string"/>
+      <preference id="password" name="extensions.EmuleOneClick.password" type="string"/> <!-- note that this is only an ASCII string - use unichar for unicode strings -->
+    </preferences>
+    <label control="texturl">Web interface URL</label><textbox id="texturl" preference="url"/>
+    <label control="textpassword">Password</label><textbox id="textpassword" preference="password"/>
+  </prefpane>
+</prefwindow>

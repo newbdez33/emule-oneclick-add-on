@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay id="EmuleOneClick-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="overlay.js"/>
+  <script src="ff-overlay.js"/>
+
+  <popup id="contentAreaContextMenu">
+    <menuitem id="context-emule-download" label="Download this ed2k link"
+              insertafter="context-stop"
+              oncommand="EmuleOneClick.onMenuItemDownload(event)"/>
+  </popup>
+  
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="EmuleOneClick-options" label="eMule one click settings"
+              oncommand="EmuleOneClick.onOptionsClick(event);"/>
+  </menupopup>
+  
+</overlay>

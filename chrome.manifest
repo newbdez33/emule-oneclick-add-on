@@ -1,0 +1,3 @@
+content   EmuleOneClick                 chrome/content/
+
+overlay   chrome://browser/content/browser.xul   chrome://EmuleOneClick/content/ff-overlay.xul
