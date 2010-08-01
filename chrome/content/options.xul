@@ -1,12 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<prefwindow id="EmuleOneClick-preferences" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="Login information" buttons="accept,cancel">
-  <prefpane id="pane1" label="Login information">
-    <preferences>
-      <preference id="url" name="extensions.EmuleOneClick.url" type="string"/>
-      <preference id="password" name="extensions.EmuleOneClick.password" type="string"/> <!-- note that this is only an ASCII string - use unichar for unicode strings -->
-    </preferences>
-    <label control="texturl">Web interface URL</label><textbox id="texturl" preference="url"/>
-    <label control="textpassword">Password</label><textbox id="textpassword" preference="password"/>
-  </prefpane>
-</prefwindow>
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<dialog id="donothing" title="eMule one-click Preferences"
+   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+   buttons="accept,cancel"
+   buttonlabelcancel="Cancel"
+   buttonlabelaccept="Save"
+   onload="onLoad();"
+   ondialogaccept="return onOK();"
+   ondialogcancel="return onCancel();" width="350px" height="220px">
+
+    <script src="chrome://EmuleOneClick/content/options.js"/>
+    
+    <!--<dialogheader title="Options" description="My preferences"/> -->
+    <groupbox>
+      <caption label="Login information"/>
+      <label value="eMule web-interface URL"/>
+      <textbox id="url" />
+      <label value="Password"/>
+      <textbox type="password" id="passwd" />
+   </groupbox>
+</dialog>

@@ -1,2 +1,2 @@
-pref("extensions.EmuleOneClick.url", "http://ip:4799");
-pref("extensions.EmuleOneClick.password", "");
+//for next version
+pref("extensions.EmuleOneClick.version", "0.1.1");
