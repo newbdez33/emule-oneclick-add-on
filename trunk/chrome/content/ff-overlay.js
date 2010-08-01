@@ -17,9 +17,9 @@ EmuleOneClick.showFirefoxContextMenu = function(event) {
 
 EmuleOneClick.addLink = function(link) {
     //1.login & to get session id
-    var pref = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService);
-    var url = pref.getCharPref('extensions.EmuleOneClick.url');
-    var password = pref.getCharPref('extensions.EmuleOneClick.password');
+    var logins = EmuleOneClick.getLoginInfo();
+    var url = logins[0].username;
+    var password = logins[0].password;
     if(!url || !password) {
     	alert("Please set your login information for eMule web interface");
     	return;
@@ -45,5 +45,27 @@ EmuleOneClick.addLink = function(link) {
     request.send("p="+password+"&w=password&submit=x");
     
 };
+
+EmuleOneClick.getLoginInfo = function() {
+
+	var hostname = 'chrome://emuleoneclick';
+	var formSubmitURL = null;
+	var httprealm = 'emule';
+	var username = 'user';
+	var password=null;
+
+	try {
+		var myLoginManager = Components.classes["@mozilla.org/login-manager;1"].
+				  getService(Components.interfaces.nsILoginManager);
+		var logins = myLoginManager.findLogins({}, hostname, formSubmitURL, httprealm);
+	} catch(ex) {}	
+	
+	if(logins) {
+		return logins;
+	}else {
+		return null;
+	}
+
+}
 
 window.addEventListener("load", EmuleOneClick.onFirefoxLoad, false);
